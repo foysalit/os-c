@@ -1,11 +1,11 @@
 /*    self.c Shows that a process is a a single thread */
 
 #include <stdio.h>
+#include <unistd.h>
 #include "pthread.h"		// POSIX threads
 
 
-int
-main (void)
+int main (void)
 {
   pthread_t pt;
  

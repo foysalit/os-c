@@ -10,7 +10,7 @@ Illustrates:
 
 int num_arg;		// read-only global variable
 
-main(int argc, char ** argv)
+int main(int argc, char ** argv)
 {
   pid_t           childpid;
 

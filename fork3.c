@@ -5,15 +5,13 @@
 
 #define K 3
 
-int
-main()
-{
-int i;
+int main() {
+	int i;
 
-for(i=0; i<K; i++) {
-  fork();
-  printf("Body of process %d and i = %d\n",  getpid(), i);
-}
+	/*for(i=0; i<K; i++) {
+		fork();
+		printf("Body of process %d and i = %d\n",  getpid(), i);
+	}*/
 
-exit(0);
+	exit(0);
 }

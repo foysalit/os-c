@@ -14,9 +14,9 @@ Last shell command should print the parent return value (15)
 */
 
 int main() {
-	int n, status, cpid, self_pid, parent_pid;
+	int n, status = 10, cpid, self_pid, parent_pid;
 
-	printf("Parent pid = %d\n",  getpid());
+	printf("Parent pid = %d Status: %d\n",  getpid(), status);
 
 	n = fork();
 

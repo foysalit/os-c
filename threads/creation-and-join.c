@@ -7,14 +7,13 @@
 
 #include <stdio.h>
 #include <unistd.h>
-#include "pthread.h"
+#include <pthread.h>
 
 // global variable
 
 int glo = 100;
 
-static void *
-process (void *arg)
+static void *process (void *arg)
 {
   
   char *c = (char *) arg;	// cast the void argument to the real type
@@ -27,19 +26,23 @@ process (void *arg)
   return  c;
 }
 
-int
-main (void)
+int main (void)
 {
   int retcode;
   pthread_t th_a, th_b;
   void *retval;
-   
+  
+  // create thread a
   retcode = pthread_create (&th_a, NULL, process, (void *) "a");
   if (retcode != 0)
     fprintf (stderr, "create a failed %d\n", retcode);
+
+  // create thread b
   retcode = pthread_create (&th_b, NULL, process, (void *) "b");
   if (retcode != 0)
     fprintf (stderr, "create b failed %d\n", retcode);
+
+  // join threads
   retcode = pthread_join (th_a, &retval);
   
   fprintf(stderr, "retval : %c\n",   * (char *) retval);
